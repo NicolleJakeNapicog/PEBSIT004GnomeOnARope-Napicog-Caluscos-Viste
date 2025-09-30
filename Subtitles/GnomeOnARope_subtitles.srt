@@ -1,0 +1,328 @@
+1
+00:00:00,000 --> 00:00:05,785
+In this video we will run through our Gnome's Well development
+
+2
+00:00:05,785 --> 00:00:11,571
+First we will test the game and
+
+3
+00:00:11,571 --> 00:00:17,357
+We will play Gnome's well using our mobile phone.
+
+4
+00:00:17,357 --> 00:00:23,143
+Now where on the Main menu of the game, let's start by pressing new game.
+
+5
+00:00:23,143 --> 00:00:28,929
+As you can see the game is hard, and the Gnome dies when it hits a trap
+
+6
+00:00:28,929 --> 00:00:34,715
+For winning simulation we will make the Gnome invisible so we can demonstrate it without consuming more time.
+
+7
+00:00:34,715 --> 00:00:40,501
+Now, we will go to the architecture and main components of the game.
+
+8
+00:00:40,501 --> 00:00:46,287
+we will focus to our hierarchy pane.
+
+9
+00:00:46,287 --> 00:00:52,073
+Let's see first the Main Menu scene
+
+10
+00:00:52,073 --> 00:00:57,859
+take a look the hierarchy pane.
+
+11
+00:00:57,859 --> 00:01:03,645
+Here we have the menu scene
+
+12
+00:01:03,645 --> 00:01:09,431
+Main camera for this scene
+
+13
+00:01:09,431 --> 00:01:15,217
+Canvas where the image and button stored
+
+14
+00:01:15,217 --> 00:01:21,003
+MainMenu
+
+15
+00:01:21,003 --> 00:01:26,789
+and the Event System
+
+16
+00:01:26,789 --> 00:01:32,575
+Now let's take a look on Main Scene
+
+17
+00:01:32,575 --> 00:01:38,361
+Here we have the MainScene
+
+18
+00:01:38,361 --> 00:01:44,147
+Main Camera
+
+19
+00:01:44,147 --> 00:01:49,933
+Rope
+
+20
+00:01:49,933 --> 00:01:55,719
+Input Manager
+
+21
+00:01:55,719 --> 00:02:01,505
+Canvas
+
+22
+00:02:01,505 --> 00:02:07,291
+EventSystem
+
+23
+00:02:07,291 --> 00:02:13,077
+Game Manager
+
+24
+00:02:13,077 --> 00:02:18,863
+Start point
+
+25
+00:02:18,863 --> 00:02:24,649
+TreasurePresent
+
+26
+00:02:24,649 --> 00:02:30,435
+Background
+
+27
+00:02:30,435 --> 00:02:36,221
+Level
+
+28
+00:02:36,221 --> 00:02:42,007
+Rope hightlights
+
+29
+00:02:42,007 --> 00:02:47,793
+Our First coding will be the rope script where the rope physics happen
+
+30
+00:02:47,793 --> 00:02:53,579
+let's open the rope script by clicking the rope script
+
+31
+00:02:53,579 --> 00:02:59,365
+from the scripts folder in asset
+
+32
+00:02:59,365 --> 00:03:05,151
+This is our code for the rope
+
+33
+00:03:05,151 --> 00:03:10,937
+We will see a public class for the rope and declare the ropeSegmentPrefab to use
+
+34
+00:03:10,937 --> 00:03:16,723
+Here we will see the code for extending and retracting the rope
+
+35
+00:03:16,723 --> 00:03:22,509
+In start function we will cache the linereder and
+
+36
+00:03:22,509 --> 00:03:28,295
+we will call the ResetLength function
+
+37
+00:03:28,295 --> 00:03:34,081
+This is the ResetLength function
+
+38
+00:03:34,081 --> 00:03:39,867
+In CreateRopeSegments, this is where the rope segments created when we extend our rope
+
+39
+00:03:39,867 --> 00:03:45,653
+Next is the RemoveRopeSegment, called when rope is retracting
+
+40
+00:03:45,653 --> 00:03:51,439
+Next is the Update, it update every frame when
+
+41
+00:03:51,439 --> 00:03:57,224
+the rope is extending or retracting
+
+42
+00:03:57,224 --> 00:04:03,010
+this is the condition if we extend the rope
+
+43
+00:04:03,010 --> 00:04:08,796
+this is the condition if the rope retracts
+
+44
+00:04:08,796 --> 00:04:14,582
+Another highlights of coding is the bodypart
+
+45
+00:04:14,582 --> 00:04:20,368
+Let's see what it does
+
+46
+00:04:20,368 --> 00:04:26,154
+Here we have the code for the damage type when gnome hits trap
+
+47
+00:04:26,154 --> 00:04:31,940
+Slicing and Burning
+
+48
+00:04:31,940 --> 00:04:37,726
+Next is the DestroyGame function where when the gnome receive
+
+49
+00:04:37,726 --> 00:04:43,512
+damage it will end the game
+
+50
+00:04:43,512 --> 00:04:49,298
+UI, this is our main menu
+
+51
+00:04:49,298 --> 00:04:55,084
+It has the new game button to start the game
+
+52
+00:04:55,084 --> 00:05:00,870
+Next is the actual game UI
+
+53
+00:05:00,870 --> 00:05:06,656
+First we have the invicible checkbox at the upper left of the screen
+
+54
+00:05:06,656 --> 00:05:12,442
+to make the gnome invincible from the traps
+
+55
+00:05:12,442 --> 00:05:18,228
+at the upper right of the screen we can find the pause button
+
+56
+00:05:18,228 --> 00:05:24,014
+to pause the game and contains resume and new game button
+
+57
+00:05:24,014 --> 00:05:29,800
+at the lower right corner of the screen we can find the
+
+58
+00:05:29,800 --> 00:05:35,586
+up and down button to control the rope
+
+59
+00:05:35,586 --> 00:05:41,372
+So we're here at the project files directory
+
+60
+00:05:41,372 --> 00:05:47,158
+Let's take a look around on the asset folder
+
+61
+00:05:47,158 --> 00:05:52,944
+Gnome, Level, Scenes, Scripts, Sounds, and Sprites
+
+62
+00:05:52,944 --> 00:05:58,730
+this are the important components to build the game
+
+63
+00:05:58,730 --> 00:06:04,516
+Let's open the Gnome folder
+
+64
+00:06:04,516 --> 00:06:10,302
+Here we can find the prefabs and materials we use in developing the
+
+65
+00:06:10,302 --> 00:06:16,088
+game
+
+66
+00:06:16,088 --> 00:06:21,874
+next is Level
+
+67
+00:06:21,874 --> 00:06:27,660
+where all the level components like traps stored
+
+68
+00:06:27,660 --> 00:06:33,446
+Next is Scenes, where all scene of the game stored
+
+69
+00:06:33,446 --> 00:06:39,232
+Next is Scripts, where the script files of the game is stored
+
+70
+00:06:39,232 --> 00:06:45,018
+Next is Sounds, where all the sound effects used is stored
+
+71
+00:06:45,018 --> 00:06:50,804
+Next is Sprites, where all the sprites used is stored
+
+72
+00:06:50,804 --> 00:06:56,590
+Example is the parts of prototype Gnome we
+
+73
+00:06:56,590 --> 00:07:02,376
+assembled earlier is stored here
+
+74
+00:07:02,376 --> 00:07:08,162
+To build and run the game we will go to the file menu
+
+75
+00:07:08,162 --> 00:07:13,948
+and click build and run
+
+76
+00:07:13,948 --> 00:07:19,734
+It will ask to select a folder then after that click select folder
+
+77
+00:07:19,734 --> 00:07:25,520
+To run the game you will need to locate your build file
+
+78
+00:07:25,520 --> 00:07:31,306
+copy the apk file to your device and install it the it's ready to go
+
+79
+00:07:31,306 --> 00:07:37,092
+The only known issue we found is that the body parts of the Gnome
+
+80
+00:07:37,092 --> 00:07:42,878
+stays in the level even if the Gnome dies multiple times
+
+81
+00:07:42,878 --> 00:07:48,664
+Letting the Gnome's bodypart stay for couple of
+
+82
+00:07:48,664 --> 00:07:54,449
+seconds and vanish could be a possible improvements
+
